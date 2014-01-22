@@ -3,6 +3,7 @@ NorexApp::Application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :users
+  resources :microposts, only: [:create, :destroy]
   root  'static_pages#home'
 
   match '/about',   to: 'static_pages#about',   via: 'get'
