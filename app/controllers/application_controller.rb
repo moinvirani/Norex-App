@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
       u.permit(:username, :email, :password, :password_confirmation)
     end
   end
+
+  def after_sign_in_path_for(resource)
+    "/users/#{current_user.id}"
+  end
+
 end
